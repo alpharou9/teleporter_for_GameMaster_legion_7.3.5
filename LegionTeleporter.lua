@@ -5,31 +5,32 @@ local addonName = "LegionTeleporter"
 local frame
 
 -- Legion Dungeon and Raid Locations (coordinates to entrance, not inside instance)
+-- All Legion zones use map 1220 (Broken Isles)
 local locations = {
     cities = {
         {name = "Stormwind", map = 0, x = -8833.38, y = 622.62, z = 94.24},
         {name = "Dalaran (Legion)", map = 1220, x = -838.45, y = 4277.20, z = 746.26},
     },
     dungeons = {
-        {name = "Eye of Azshara", map = 0, x = -841.83, y = 6483.40, z = 3.75},
+        {name = "Eye of Azshara", map = 1220, x = -841.83, y = 6483.40, z = 3.75},
         {name = "Darkheart Thicket", map = 1220, x = 3090.27, y = 6065.73, z = 178.68},
-        {name = "Black Rook Hold", map = 1, x = 2907.24, y = 5565.30, z = 613.62},
-        {name = "Halls of Valor", map = 1, x = 921.32, y = 6943.51, z = 196.53},
-        {name = "Neltharion's Lair", map = 1, x = 3261.54, y = 2789.22, z = 443.26},
-        {name = "Vault of the Wardens", map = 1, x = 4593.38, y = -437.96, z = 117.82},
-        {name = "Maw of Souls", map = 1, x = 2586.97, y = 680.36, z = 0.37},
-        {name = "Assault on Violet Hold", map = 1, x = -840.37, y = 4490.33, z = 733.16},
-        {name = "Court of Stars", map = 1, x = 1024.79, y = 4382.17, z = 45.08},
-        {name = "The Arcway", map = 1, x = -835.88, y = 4278.68, z = 746.25},
-        {name = "Cathedral of Eternal Night", map = 1, x = -923.42, y = 4489.75, z = 713.03},
-        {name = "Seat of the Triumvirate", map = 1, x = -3582.35, y = 3398.57, z = 74.29},
+        {name = "Black Rook Hold", map = 1220, x = 2907.24, y = 5565.30, z = 613.62},
+        {name = "Halls of Valor", map = 1220, x = 921.32, y = 6943.51, z = 196.53},
+        {name = "Neltharion's Lair", map = 1220, x = 3261.54, y = 2789.22, z = 443.26},
+        {name = "Vault of the Wardens", map = 1220, x = 4593.38, y = -437.96, z = 117.82},
+        {name = "Maw of Souls", map = 1220, x = 2586.97, y = 680.36, z = 0.37},
+        {name = "Assault on Violet Hold", map = 1220, x = -840.37, y = 4490.33, z = 733.16},
+        {name = "Court of Stars", map = 1220, x = 1024.79, y = 4382.17, z = 45.08},
+        {name = "The Arcway", map = 1220, x = -835.88, y = 4278.68, z = 746.25},
+        {name = "Cathedral of Eternal Night", map = 1220, x = -923.42, y = 4489.75, z = 713.03},
+        {name = "Seat of the Triumvirate", map = 1220, x = -3582.35, y = 3398.57, z = 74.29},
     },
     raids = {
-        {name = "The Emerald Nightmare", map = 1, x = 3445.69, y = 6268.80, z = 149.08},
-        {name = "Trial of Valor", map = 1, x = 2594.55, y = 706.88, z = 2.58},
-        {name = "The Nighthold", map = 1, x = 1008.82, y = 4591.06, z = 53.03},
-        {name = "Tomb of Sargeras", map = 1, x = -1772.06, y = 1342.19, z = 2.51},
-        {name = "Antorus, the Burning Throne", map = 1, x = -3464.54, y = 9870.20, z = -14.42},
+        {name = "The Emerald Nightmare", map = 1220, x = 3445.69, y = 6268.80, z = 149.08},
+        {name = "Trial of Valor", map = 1220, x = 2594.55, y = 706.88, z = 2.58},
+        {name = "The Nighthold", map = 1220, x = 1008.82, y = 4591.06, z = 53.03},
+        {name = "Tomb of Sargeras", map = 1220, x = -1772.06, y = 1342.19, z = 2.51},
+        {name = "Antorus, the Burning Throne", map = 1220, x = -3464.54, y = 9870.20, z = -14.42},
     }
 }
 

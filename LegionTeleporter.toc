@@ -2,6 +2,7 @@
 ## Title: Legion Teleporter
 ## Notes: Teleport to Legion dungeons and raids (outside entrance)
 ## Author: GM Helper
-## Version: 1.0.0
+## Version: 1.1.0
+## SavedVariablesPerCharacter: LegionTeleporterSavedPositions
 
 LegionTeleporter.lua

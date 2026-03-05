@@ -307,6 +307,69 @@ SlashCmdList["LEGIONTELEPORTER"] = function()
     end
 end
 
+-- Save Position Command
+SLASH_SAVEPOSITION1 = "/savepos"
+SLASH_SAVEPOSITION2 = "/saveposition"
+
+SlashCmdList["SAVEPOSITION"] = function(msg)
+    local name = string.trim(msg)
+    if name == "" then
+        print("|cffff0000[Legion Teleporter]|r Usage: /savepos <name>")
+        print("|cffff0000[Legion Teleporter]|r Example: /savepos Eye of Azshara")
+        return
+    end
+    
+    local x, y = UnitPosition("player")
+    local z = select(3, UnitPosition("player"))
+    local mapID = C_Map.GetBestMapForUnit("player")
+    
+    if not mapID then
+        print("|cffff0000[Legion Teleporter]|r Could not determine map ID")
+        return
+    end
+    
+    -- Initialize saved positions table
+    if not LegionTeleporterSavedPositions then
+        LegionTeleporterSavedPositions = {}
+    end
+    
+    -- Save to SavedVariables
+    LegionTeleporterSavedPositions[name] = {
+        x = x,
+        y = y,
+        z = z,
+        map = mapID
+    }
+    
+    -- Print in copy-paste format
+    print("|cff00ff00[Legion Teleporter]|r Position saved for: |cffFFFF00" .. name .. "|r")
+    print(" ")
+    print("|cff88ccff----- Copy this line to add to addon -----")
+    print(string.format('        {name = "%s", map = %d, x = %.2f, y = %.2f, z = %.2f},', name, mapID, x, y, z))
+    print("|cff88ccff---------------------------------------------")
+    print(" ")
+    print("|cff888888Type /listpos to see all saved positions|r")
+end
+
+-- List Saved Positions
+SLASH_LISTPOSITION1 = "/listpos"
+SLASH_LISTPOSITION2 = "/listpositions"
+
+SlashCmdList["LISTPOSITION"] = function()
+    if not LegionTeleporterSavedPositions or next(LegionTeleporterSavedPositions) == nil then
+        print("|cffff0000[Legion Teleporter]|r No saved positions yet")
+        print("|cff888888Use /savepos <name> to save your current position|r")
+        return
+    end
+    
+    print("|cff00ff00[Legion Teleporter]|r Saved Positions:")
+    print("|cff88ccff----- Copy these lines to add to addon -----")
+    for name, pos in pairs(LegionTeleporterSavedPositions) do
+        print(string.format('        {name = "%s", map = %d, x = %.2f, y = %.2f, z = %.2f},', name, pos.map, pos.x, pos.y, pos.z))
+    end
+    print("|cff88ccff---------------------------------------------")
+end
+
 -- Initialize
 local initFrame = CreateFrame("Frame")
 initFrame:RegisterEvent("PLAYER_LOGIN")
@@ -314,6 +377,7 @@ initFrame:SetScript("OnEvent", function(self, event)
     if event == "PLAYER_LOGIN" then
         CreateMainFrame()
         CreateMinimapButton()
-        print("|cff66ccff[Legion Teleporter]|r v1.0 Loaded! Type |cffffffff/t|r to open.")
+        print("|cff66ccff[Legion Teleporter]|r v1.1 Loaded! Type |cffffffff/t|r to open.")
+        print("|cff888888Use /savepos <name> to save current position|r")
     end
 end)

@@ -1,0 +1,7 @@
+## Interface: 70305
+## Title: Legion Teleporter
+## Notes: Teleport to Legion dungeons and raids (outside entrance)
+## Author: GM Helper
+## Version: 1.0.0
+
+LegionTeleporter.lua

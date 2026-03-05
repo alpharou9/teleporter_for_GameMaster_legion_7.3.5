@@ -8,7 +8,7 @@ local frame
 local locations = {
     cities = {
         {name = "Stormwind", map = 0, x = -8833.38, y = 622.62, z = 94.24},
-        {name = "Dalaran (Legion)", map = 1, x = -839.32, y = 4255.57, z = 746.26},
+        {name = "Dalaran (Legion)", map = 1220, x = -838.45, y = 4277.20, z = 746.26},
     },
     dungeons = {
         {name = "Eye of Azshara", map = 0, x = -841.83, y = 6483.40, z = 3.75},
